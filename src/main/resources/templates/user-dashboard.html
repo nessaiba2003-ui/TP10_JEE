@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Système de Sécurité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body style="justify-content: flex-start;">
+<div class="dashboard-container">
+    <nav class="nav">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="logo" style="width: 40px; height: 40px; font-size: 16px;">S</div>
+            <h2 style="margin: 0;">Plateforme Sécurisée</h2>
+        </div>
+        <div class="nav-links">
+            <a th:href="@{/}">Accueil</a>
+            <a th:href="@{/user/dashboard}" class="active">User Panel</a>
+            <a th:href="@{/admin/dashboard}">Admin Panel</a>
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+                <button type="submit" class="logout-btn">Déconnexion</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="card" style="max-width: none; width: 100%; border-radius: 1.5rem;">
+        <h2 style="text-align: left;"><span style="color: var(--primary);">#</span> Tableau de Bord Utilisateur</h2>
+        <p style="color: var(--text-secondary);">Bienvenue MR LACHGAR dans votre espace personnel. Ici, vous pouvez accéder aux services autorisés pour votre niveau d'accréditation.</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Mon Profil</h3>
+                <p>Gérez vos informations personnelles et changez votre mot de passe.</p>
+                <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 0.5rem; margin-top: 1rem;">
+                   <p style="font-size: 0.875rem; color: var(--text-primary);">Identifiant: [[${#authentication.name}]]</p>
+                   <p style="font-size: 0.875rem;">Rôles: [[${#authentication.authorities}]]</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h3>Documents Partagés</h3>
+                <p>Accédez aux fichiers et documents partagés avec votre unité.</p>
+                <div style="margin-top: 1rem; color: #475569; font-style: italic; font-size: 0.875rem;">Aucun document disponible</div>
+            </div>
+            <div class="info-card">
+                <h3>Assistance</h3>
+                <p>Besoin d'aide ? Contactez notre support technique ouvert 24/7.</p>
+                <button style="margin-top: 1rem; padding: 0.5rem; width: auto; font-size: 0.875rem;">Ouvrir un ticket</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

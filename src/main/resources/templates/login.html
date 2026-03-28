@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Application Sécurisée</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="logo-container">
+            <div class="logo">S</div>
+        </div>
+        <h2>Système de Sécurité</h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.875rem;">
+            Veuillez vous authentifier pour accéder à votre espace sécurisé.
+        </p>
+
+        <div th:if="${param.error}" class="alert alert-error">
+            <strong>Erreur d'accès :</strong> Identifiants incorrects, veuillez réessayer.
+        </div>
+
+        <div th:if="${param.logout}" class="alert alert-success">
+            <strong>Déconnexion :</strong> Vous êtes déconnecté avec succès.
+        </div>
+
+        <form th:action="@{/authenticate}" method="post">
+            <div class="form-group">
+                <label for="username">Nom d’utilisateur</label>
+                <input type="text" id="username" name="username" placeholder="votre_nom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <div class="links">
+            <p style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 1rem;">
+                &copy; 2026 Système de Sécurité JPA. Tous droits réservés.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

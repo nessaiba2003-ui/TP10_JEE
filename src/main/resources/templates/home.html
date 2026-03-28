@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Système de Sécurité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body style="justify-content: flex-start;">
+<div class="dashboard-container">
+    <nav class="nav">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="logo" style="width: 40px; height: 40px; font-size: 16px;">S</div>
+            <h2 style="margin: 0;">Plateforme Sécurisée</h2>
+        </div>
+        <div class="nav-links">
+            <a th:href="@{/}" class="active">Accueil</a>
+            <a th:href="@{/user/dashboard}">User Panel</a>
+            <a th:href="@{/admin/dashboard}">Admin Panel</a>
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+                <button type="submit" class="logout-btn">Déconnexion</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="card" style="max-width: none; width: 100%; border-radius: 1.5rem;">
+        <h2 style="text-align: left;">Bienvenue,MR LACHGAR </h2>
+        <p style="color: var(--text-secondary);">Vous êtes connecté au système de gestion sécurisé. Utilisez le menu ci-dessus ou les cartes ci-dessous pour naviguer.</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Espace Utilisateur</h3>
+                <p>Consultez vos informations personnelles et accédez à vos ressources partagées.</p>
+                <a th:href="@{/user/dashboard}" style="display: block; margin-top: 1rem; color: var(--primary); text-decoration: none; font-weight: 600;">Accéder &rarr;</a>
+            </div>
+            <div class="info-card">
+                <h3>Espace Administration</h3>
+                <p>Gérez les utilisateurs, les rôles et les paramètres système (accès restreint).</p>
+                <a th:href="@{/admin/dashboard}" style="display: block; margin-top: 1rem; color: var(--primary); text-decoration: none; font-weight: 600;">Gérer &rarr;</a>
+            </div>
+            <div class="info-card">
+                <h3>Journal d'audit</h3>
+                <p>Visualisez les dernières activités de sécurité sur votre compte.</p>
+                <span style="display: block; margin-top: 1rem; color: var(--text-secondary); font-size: 0.875rem;">Indisponible</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

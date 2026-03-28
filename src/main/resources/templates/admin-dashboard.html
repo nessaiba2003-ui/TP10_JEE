@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Système de Sécurité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body style="justify-content: flex-start;">
+<div class="dashboard-container">
+    <nav class="nav">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="logo" style="width: 40px; height: 40px; font-size: 16px;">S</div>
+            <h2 style="margin: 0;">Plateforme Sécurisée</h2>
+        </div>
+        <div class="nav-links">
+            <a th:href="@{/}">Accueil</a>
+            <a th:href="@{/user/dashboard}">User Panel</a>
+            <a th:href="@{/admin/dashboard}" class="active">Admin Panel</a>
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+                <button type="submit" class="logout-btn">Déconnexion</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="card" style="max-width: none; width: 100%; border-radius: 1.5rem; border-top: 4px solid var(--primary);">
+        <h2 style="text-align: left;"><span style="color: var(--primary);">#</span> Espace Administrateur</h2>
+        <p style="color: var(--text-secondary);">Bienvenue PROF dans le panneau d'administration. En tant qu'ADMIN, vous avez le contrôle total sur les ressources critiques.</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Gestion Utilisateurs</h3>
+                <p>Créer, modifier ou supprimer des comptes utilisateurs.</p>
+                <div style="height: 100px; background: rgba(0,0,0,0.2); margin-top: 1rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 0.75rem;">LISTE DES UTILISATEURS</div>
+            </div>
+            <div class="info-card">
+                <h3>Paramètres Système</h3>
+                <p>Configurez les protocoles de sécurité et les variables d'environnement.</p>
+                <div style="height: 100px; background: rgba(0,0,0,0.2); margin-top: 1rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 0.75rem;">CONFIGURATIONS</div>
+            </div>
+            <div class="info-card">
+                <h3>Analyses Securité</h3>
+                <p>Surveillez les tentatives de connexion et les anomalies détectées.</p>
+                <div style="height: 100px; background: rgba(0,0,0,0.2); margin-top: 1rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 0.75rem;">GRAPHIQUES DE SÉCURITÉ</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
